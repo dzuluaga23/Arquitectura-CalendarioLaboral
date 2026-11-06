@@ -1,0 +1,30 @@
+# Ignorar carpetas target de compilación (raíz y submódulos)
+target/
+**/target/
+
+# Archivos ejecutables y logs de Maven
+.mvn/
+mvnw
+mvnw.cmd
+*.log
+
+# Archivos de configuración de VS Code
+.vscode/
+
+# Archivos de configuración de Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Archivos de configuración de IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+
+# Documentos temporales
+HELP.md
