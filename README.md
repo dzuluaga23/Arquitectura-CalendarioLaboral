@@ -24,6 +24,8 @@ git clone https://github.com/dzuluaga23/Arquitectura-CalendarioLaboral.git
 cd Arquitectura-CalendarioLaboral
 ```
 
+---
+
 ### 2. Configurar application.properties
 El proyecto utiliza una configuración directa en presentacion/src/main/resources/application.properties:
 ```bash
@@ -43,11 +45,16 @@ spring.jpa.show-sql=true
 # URL Base de la API Festivos externa
 api.festivos.url=http://localhost:3000/festivos
 ```
+
+---
+
 ### 3. Compilar e Instalar Módulos
 Ejecuta el siguiente comando en la raíz del proyecto para compilar los módulos:
 ```bash
 mvn clean install -DskipTests
 ```
+
+---
 
 ### 4. Ejecución de la API
 Para levantar el servidor de desarrollo, ejecuta el módulo de presentación:
@@ -55,6 +62,8 @@ Para levantar el servidor de desarrollo, ejecuta el módulo de presentación:
 mvn spring-boot:run -pl presentacion
 ```
 La aplicación se iniciará por defecto en el puerto 8080.
+
+---
 
 ### 5. Endpoints
 Una vez iniciada la aplicación, accede a Swagger UI en:
