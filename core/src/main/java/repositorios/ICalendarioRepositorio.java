@@ -8,4 +8,5 @@ public interface ICalendarioRepositorio {
     List<Calendario> listar();
     Calendario obtener(long id);
     Calendario obtenerPorFecha(Date fecha);
+    Calendario guardar(Calendario calendario);
 }

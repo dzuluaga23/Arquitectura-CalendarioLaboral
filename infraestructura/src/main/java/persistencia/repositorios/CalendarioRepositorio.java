@@ -41,4 +41,10 @@ public class CalendarioRepositorio implements ICalendarioRepositorio {
         Optional<CalendarioEntidad> entidad = calendarioJpaRepository.findByFecha(fecha);
         return entidad.map(CalendarioMapeador::aDominio).orElse(null);
     }
+
+    @Override
+    public Calendario guardar(Calendario calendario) {
+        CalendarioEntidad entidadGuardada = calendarioJpaRepository.save(CalendarioMapeador.aEntidad(calendario));
+        return CalendarioMapeador.aDominio(entidadGuardada);
+    }
 }

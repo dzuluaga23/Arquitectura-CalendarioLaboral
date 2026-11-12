@@ -1,31 +1,24 @@
 package clientes.dto;
 
+/**
+ * DTO que refleja el formato real de respuesta de la API Festivos (Node.js/Express):
+ * GET /api/festivos/obtener/{anio} -> [{ "festivo": "Año nuevo", "fecha": "2026-01-01" }]
+ */
 public class FestivoDto {
-    private String id;
-    private String nombre;
-    private int dia;
-    private int mes;
-    private int anio;
-    private int idTipo;
+    private String festivo;
+    private String fecha; // Formato "YYYY-MM-DD"
 
     public FestivoDto() {
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getFestivo() { return festivo; }
+    public void setFestivo(String festivo) { this.festivo = festivo; }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getFecha() { return fecha; }
+    public void setFecha(String fecha) { this.fecha = fecha; }
 
-    public int getDia() { return dia; }
-    public void setDia(int dia) { this.dia = dia; }
-
-    public int getMes() { return mes; }
-    public void setMes(int mes) { this.mes = mes; }
-
-    public int getAnio() { return anio; }
-    public void setAnio(int anio) { this.anio = anio; }
-
-    public int getIdTipo() { return idTipo; }
-    public void setIdTipo(int idTipo) { this.idTipo = idTipo; }
+    @Override
+    public String toString() {
+        return "FestivoDto{festivo='" + festivo + "', fecha='" + fecha + "'}";
+    }
 }

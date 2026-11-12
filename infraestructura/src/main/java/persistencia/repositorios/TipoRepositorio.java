@@ -34,4 +34,16 @@ public class TipoRepositorio implements ITipoRepositorio {
         Optional<TipoEntidad> entidad = tipoJpaRepository.findById(id);
         return entidad.map(TipoMapeador::aDominio).orElse(null);
     }
+
+    @Override
+    public Tipo obtenerPorNombre(String nombre) {
+        Optional<TipoEntidad> entidad = tipoJpaRepository.findByTipo(nombre);
+        return entidad.map(TipoMapeador::aDominio).orElse(null);
+    }
+
+    @Override
+    public Tipo guardar(Tipo tipo) {
+        TipoEntidad entidadGuardada = tipoJpaRepository.save(TipoMapeador.aEntidad(tipo));
+        return TipoMapeador.aDominio(entidadGuardada);
+    }
 }

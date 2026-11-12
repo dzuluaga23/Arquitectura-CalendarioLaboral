@@ -6,17 +6,17 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {
-    "calendariolaboral.api",
     "controladores",
     "servicios",
-    "persistencia"
+    "repositorios",
+    "persistencia",
+    "clientes",
+    "handlers"
 })
 @EntityScan(basePackages = {
-    "calendariolaboral.api.infraestructura.persistencia.entidades",
     "persistencia.entidades"
 })
 @EnableJpaRepositories(basePackages = {
-    "calendariolaboral.api.infraestructura.persistencia.repositorios.jpa",
     "persistencia.repositorios.jpa"
 })
 public class ApiApplication {
