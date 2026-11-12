@@ -8,4 +8,6 @@ public interface ITipoRepositorio {
     Tipo obtener(long id);
     Tipo obtenerPorNombre(String nombre);
     Tipo guardar(Tipo tipo);
+    Tipo modificar(Tipo tipo);
+    boolean eliminar(long id);
 }

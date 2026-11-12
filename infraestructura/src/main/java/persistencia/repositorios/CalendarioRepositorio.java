@@ -47,4 +47,9 @@ public class CalendarioRepositorio implements ICalendarioRepositorio {
         CalendarioEntidad entidadGuardada = calendarioJpaRepository.save(CalendarioMapeador.aEntidad(calendario));
         return CalendarioMapeador.aDominio(entidadGuardada);
     }
+
+    @Override
+    public long contarPorTipo(long idTipo) {
+        return calendarioJpaRepository.countByTipoId(idTipo);
+    }
 }

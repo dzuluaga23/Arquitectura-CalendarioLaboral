@@ -46,4 +46,26 @@ public class TipoRepositorio implements ITipoRepositorio {
         TipoEntidad entidadGuardada = tipoJpaRepository.save(TipoMapeador.aEntidad(tipo));
         return TipoMapeador.aDominio(entidadGuardada);
     }
+
+    @Override
+    public Tipo modificar(Tipo tipo) {
+        Optional<TipoEntidad> existente = tipoJpaRepository.findById(tipo.getId());
+        if (existente.isEmpty()) {
+            return null;
+        }
+
+        TipoEntidad entidad = existente.get();
+        entidad.setTipo(tipo.getTipo());
+        TipoEntidad entidadModificada = tipoJpaRepository.save(entidad);
+        return TipoMapeador.aDominio(entidadModificada);
+    }
+
+    @Override
+    public boolean eliminar(long id) {
+        if (!tipoJpaRepository.existsById(id)) {
+            return false;
+        }
+        tipoJpaRepository.deleteById(id);
+        return true;
+    }
 }

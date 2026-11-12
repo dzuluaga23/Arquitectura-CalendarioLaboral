@@ -5,6 +5,7 @@ import servicios.ITipoServicio; // Se conecta con la interfaz en Core
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -30,5 +31,27 @@ public class TipoControlador {
             return ResponseEntity.ok(tipo);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/agregar")
+    public ResponseEntity<Tipo> agregar(@RequestBody Tipo tipo) {
+        Tipo tipoCreado = tipoServicio.crear(tipo);
+        URI ubicacion = URI.create("/api/tipos/obtener/" + tipoCreado.getId());
+        return ResponseEntity.created(ubicacion).body(tipoCreado);
+    }
+
+    @PutMapping("/modificar")
+    public ResponseEntity<Tipo> modificar(@RequestBody Tipo tipo) {
+        Tipo tipoModificado = tipoServicio.modificar(tipo);
+        if (tipoModificado != null) {
+            return ResponseEntity.ok(tipoModificado);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable long id) {
+        tipoServicio.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }

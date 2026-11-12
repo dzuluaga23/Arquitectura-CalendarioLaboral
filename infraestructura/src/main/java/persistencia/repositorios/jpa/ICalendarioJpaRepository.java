@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface ICalendarioJpaRepository extends JpaRepository<CalendarioEntidad, Long> {
     Optional<CalendarioEntidad> findByFecha(Date fecha);
+    long countByTipoId(Long idTipo);
 }
